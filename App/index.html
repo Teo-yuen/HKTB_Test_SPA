@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-  <title>Vanilla JavaScript SPA</title>
-  <link rel="SHORTCUT ICON" href="./favicon.svg" type="image/x-icon">
+  <title>My PartnerNet</title>
+  <link rel="SHORTCUT ICON" href="https://partnernet.hktb.com/favicon.ico" type="image/x-icon">
 
   <!-- msal.min.js can be used in the place of msal.js; included msal.js to make debug easy -->
   <script src="https://alcdn.msauth.net/browser/2.30.0/js/msal-browser.js"
@@ -18,31 +18,87 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="/">Azure AD B2C</a>
-    <div class="btn-group ml-auto dropleft">
-      <!-- <button type="button" id="editProfileButton" class="btn btn-secondary d-none" onclick="editProfile()">Edit
-        Profile</button> -->
-      <button type="button" id="signIn" class="btn btn-secondary" onclick="signIn()">Sign-in</button>
-      <button type="button" id="signOut" class="btn btn-success d-none" onclick="signOut()">Sign-out</button>
+
+  <div id="wrapper" class="sizecontrol middle_size">
+    <div id="wrapperInner">
+      <div id="header">
+        <div id="header_zone" class="container">
+          <div id="top_nav" class="clearfix">
+            <div id="logo_wrap"><a href="/"><img
+                  src="https://partnernet.hktb.com/filemanager/template/en/images/PartnerNet-Logo2.gif" alt="Home"></a>
+            </div>
+          </div>
+
+          <div class="clearfix">
+            <ul>
+              <li>
+                <a href="/en/industry_news/index.html" target=""><span style="height: 40px;">Industry News</span></a>
+              </li>
+              <li>
+                <a href="/en/trade_support/index.html" target=""><span style="height: 40px;">Trade Support</span></a>
+              </li>
+              <li>
+                <a href="/en/e_marketplace/index.html" target=""><span style="height: 40px;">e-Marketplace</span></a>
+              </li>
+              <li>
+                <a href="/en/destination/index.html" target=""><span style="height: 40px;">Destinations</span></a>
+              </li>
+              <li>
+                <a href="/en/quality_tourism_services/index.html" target=""><span style="height: 40px;">Quality Tourism
+                    Services Scheme</span></a>
+              </li>
+              <li>
+                <a href="/en/meetings_exhibitions/index.html" target=""><span style="height: 40px;">Meetings &amp;
+                    Exhibitions</span></a>
+              </li>
+              <li>
+                <a href="/en/cruise/index.html" target=""><span style="height: 40px;">Cruise</span></a>
+              </li>
+            </ul>
+          </div>
+
+          <div id="middleZone">
+
+            <div id="breadcrumb"><a href="/en/home/index.html">Home </a><span class="selected_hidden">/ Login</span><a
+                style="display:none;" class="selected" href="/en/my_partnernet/index.html" target="">Login</a>
+            </div>
+
+            <div id="section_title">
+              <span>Login</span>
+            </div>
+
+            <div id="contentWrap">
+              <div class="contentInner">
+
+                <p>Welcome to PartnerNet – An interactive platform specially designed for travel trade partners to build
+                  network and explore business opportunities.</p>
+
+                <h1 class="clear">Already a TSP / Individual user? Please login:</h1>
+                <div class="btnContainer">
+                  <button type="button" id="signIn" class="btn btnbg" onclick="signIn()">Sign-in</button>
+                  <button type="button" id="signOut" class="btn btnbg d-none" onclick="signOut()">Sign-out</button>
+
+                  <h2 id="welcome-div" class="card-header text-center d-none"></h2>
+                  <br />
+                </div>
+                <p>Click <a href="http://localhost:6430">this link</a> to E-learning.</p>
+              </div>
+
+            </div>
+
+
+
+          </div>
+
+
+        </div>
+      </div>
     </div>
-  </nav>
-  <br>
-  <h5 id="title-div" class="card-header text-center">Vanilla JavaScript single-page application built with MSAL.js</h5>
-  <h5 id="welcome-div" class="card-header text-center d-none"></h5>
-  <br>
-  <!-- Content -->
-  <div class="card">
-    <h5 class="card-header text-center">Getting an access token with Azure AD B2C and calling a web API</h5>
-    <div class="card-body text-center">
-      <h5 id="label" class="card-title">Sign-in with Microsoft Azure AD B2C</h5>
-      <pre id="response" class="card-text"></pre>
-      <button type="button" id="callApiButton" class="btn btn-primary d-none" onclick="passTokenToApi()">Call
-        API</button>
-    </div>
+
+
   </div>
 
-  <p>Please follow <a href="http://localhost:6430">this link</a>.</p>
+
 
   <!-- importing bootstrap.js and supporting js libraries -->
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -66,5 +122,163 @@
   <!-- <script type="text/javascript" src="./authPopup.js"></script> -->
   <script type="text/javascript" src="./api.js"></script>
 </body>
+
+<style>
+  sizecontrol .middle_size {
+    font-size: 93.5%;
+  }
+
+  .container {
+    width: 100%;
+    padding: 0 20px;
+    margin: 0 auto;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+  }
+
+  li {
+    float: left;
+  }
+
+  li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+  }
+
+  #breadcrumb {
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    font: 18px Microsoft JhengHei, Microsoft YaHei, Hiragino Sans GB, Arial, Helvetica, sans-serif;
+    line-height: 1.428571429;
+    color: #000;
+    font-family: 'Roboto', "Microsoft JhengHei", "Microsoft YaHei", "Hiragino Sans GB", Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    border: 0;
+    vertical-align: baseline;
+    margin-top: 1px;
+    background-position: 100% 0;
+    background-repeat: repeat-y;
+    padding: 8px 15px;
+    font-size: 0.875em;
+    background-image: url('images/light_theme/Breadcrumb-Bg.png');
+    background-color: #f9e4e4;
+  }
+
+  #section_title {
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    font: 18px Microsoft JhengHei, Microsoft YaHei, Hiragino Sans GB, Arial, Helvetica, sans-serif;
+    line-height: 1.428571429;
+    font-family: 'Roboto', "Microsoft JhengHei", "Microsoft YaHei", "Hiragino Sans GB", Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    padding: 5px 15px;
+    color: #fff;
+    background-position: 100% 0;
+    background-repeat: repeat-y;
+    margin-bottom: 1px;
+    position: relative;
+    font-weight: bold;
+    background-color: #fe0002;
+  }
+
+  #contentWrap {
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    font: 18px Microsoft JhengHei, Microsoft YaHei, Hiragino Sans GB, Arial, Helvetica, sans-serif;
+    line-height: 1.428571429;
+    color: #000;
+    font-family: 'Roboto', "Microsoft JhengHei", "Microsoft YaHei", "Hiragino Sans GB", Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    clear: both;
+  }
+
+  #contentInner {
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    font: 18px Microsoft JhengHei, Microsoft YaHei, Hiragino Sans GB, Arial, Helvetica, sans-serif;
+    line-height: 1.428571429;
+    color: #000;
+    font-family: 'Roboto', "Microsoft JhengHei", "Microsoft YaHei", "Hiragino Sans GB", Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    padding-top: 24px;
+    padding-bottom: 90px;
+    background: #fff !important;
+    width: 100%;
+    padding-left: 15px;
+    float: none;
+  }
+
+  .clear {
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    font: 18px Microsoft JhengHei, Microsoft YaHei, Hiragino Sans GB, Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    font-family: 'Roboto-Med';
+    font-weight: normal;
+    line-height: 1.28;
+    color: #a40708;
+  }
+
+  .btnContainer {
+    width: 100%;
+    padding: 0 20px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .btnbg {
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    font: 18px Microsoft JhengHei, Microsoft YaHei, Hiragino Sans GB, Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', "Microsoft JhengHei", "Microsoft YaHei", "Hiragino Sans GB", Arial, Helvetica, sans-serif;
+    font-size: 100%;
+    box-sizing: border-box;
+    text-decoration: none;
+    padding: 5px 15px;
+    min-height: 38px;
+    transition: background-color 0.4s ease 0s, color 0.4s ease 0s;
+    position: relative;
+    display: inline-block;
+    min-width: 115px;
+    text-align: center;
+    margin-bottom: 5px;
+    color: #fff;
+    background: #cb0002;
+    margin-right: 5px;
+    line-height: 28px;
+  }
+</style>
 
 </html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>My PartnerNet</title>
+  <link rel="SHORTCUT ICON" href="https://partnernet.hktb.com/favicon.ico" type="image/x-icon">
+
+  <!-- msal.min.js can be used in the place of msal.js; included msal.js to make debug easy -->
+  <script src="https://alcdn.msauth.net/browser/2.30.0/js/msal-browser.js"
+    integrity="sha384-o4ufwq3oKqc7IoCcR08YtZXmgOljhTggRwxP2CLbSqeXGtitAxwYaUln/05nJjit"
+    crossorigin="anonymous"></script>
+
+  <!-- adding Bootstrap 4 for UI components  -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+
+  <div id="wrapper" class="sizecontrol middle_size">
+    <div id="wrapperInner">
+      <div id="header">
+        <div id="header_zone" class="container">
+          <div id="top_nav" class="clearfix">
+            <div id="logo_wrap"><a href="/en/home/index.html"><img
+                  src="https://partnernet.hktb.com/filemanager/template/en/images/PartnerNet-Logo2.gif" alt="Home"></a>
+            </div>
+            <div id="tool_nav">
+              <ul class="clearfix">
+                <!-- <li id="loginBtn" class="login"><a href="/en/my_partnernet/index.html">Sign In / Up</a></li> -->
+                <li id="loginBtn" class="login">Sign In / Up</li>
+                <li><a href="https://www.discoverhongkong.com/eng/hktb/about.html" target="_blank">About HKTB</a></li>
+                <li>
+                  <div id="fontsize_trigger"> <a class="small" title="Text Size: Smaller"
+                      href="javascript:zms.changeFontSize(1);">A</a> <a class="middle selected"
+                      title="Text Size: Default" href="javascript:zms.changeFontSize(2);">A</a> <a class="large"
+                      title="Text Size: Larger" href="javascript:zms.changeFontSize(3);">A</a> </div>
+                </li>
+                <li class="lang_nav"><a href="javascript:;">Language</a>
+                  <div class="pulldown_opts">
+                    <ul>
+                      <li><a href="javascript:switchSite('/en/');" title="INTERNATIONAL - English">INTERNATIONAL -
+                          English</a></li>
+                      <li><a href="javascript:switchSite('/tc/');" title="INTERNATIONAL - 繁體中文">INTERNATIONAL - 繁體中文</a>
+                      </li>
+                      <li><a href="javascript:switchSite('/sc/');" title="INTERNATIONAL - 简体中文">INTERNATIONAL - 简体中文</a>
+                      </li>
+                      <li><a href="javascript:switchSite('/australia/en/');" title="Australia - English">Australia -
+                          English</a></li>
+                      <li><a href="javascript:switchSite('/canada/en/');" title="Canada - English">Canada - English</a>
+                      </li>
+                      <li><a href="javascript:switchSite('/france/fr/');" title="France - Français">France -
+                          Français</a></li>
+                      <li><a href="javascript:switchSite('/germany/de/');" title="Germany - Deutsch">Germany -
+                          Deutsch</a></li>
+                      <li><a href="javascript:switchSite('/india/en/');" title="India - English">India - English</a>
+                      </li>
+                      <li><a href="javascript:switchSite('/japan/jp/');" title="Japan - 日本語">Japan - 日本語</a></li>
+                      <li><a href="javascript:switchSite('/korea/kr/');" title="Korea - 한국어">Korea - 한국어</a></li>
+                      <li><a href="javascript:switchSite('/china/sc/');" title="Mainland China - 简体中文">Mainland China -
+                          简体中文</a></li>
+                      <li><a href="javascript:switchSite('/middleeast/en/');" title="Middle East - English">Middle East
+                          - English</a></li>
+                      <li><a href="javascript:switchSite('/russia/ru/');" title="Russia - русский">Russia - русский</a>
+                      </li>
+                      <li><a href="javascript:switchSite('/sea/en/');" title="Southeast Asia - English">Southeast Asia -
+                          English</a></li>
+                      <li><a href="javascript:switchSite('/taiwan/tc/');" title="Taiwan - 繁體中文">Taiwan - 繁體中文</a></li>
+                      <li><a href="javascript:switchSite('/uk/en/');" title="United Kingdom - English">United Kingdom -
+                          English</a></li>
+                      <li><a href="javascript:switchSite('/usa/en/');" title="United States - English">United States -
+                          English</a></li>
+                      <li class="lang_remember"><input type="checkbox" id="languageRemember" name="languageRemember"
+                          title="Remember selection"><label for="languageRemember">Remember selection</label></li>
+                    </ul>
+                  </div>
+                </li>
+                <li><a class="siteSearchBtn" href="javascript:;">Site Search</a>
+                  <form method="GET" class="cse-search-box" name="siteSearch" action="/en/sitesearch/index.html">
+                    <div class="siteSearchWrap clearfix">
+                      <div class="keyword_wrap formItem">
+                        <input type="text" name="q" size="31" placeholder="Enter Search Keywords">
+                      </div>
+                      <div class="search_btn">
+                        <a href="javascript:;" class="btn_general">Search</a>
+                      </div>
+                      <a class="close-btn" href="javascript:;"></a>
+                    </div>
+                  </form>
+                </li>
+              </ul>
+            </div>
+            <div id="gov_nav_right_mobile">
+              <ul class="clearfix">
+                <li class="mobile_mypartnernet_btn"><a href="/en/my_partnernet/index.html">Sign In / Up</a></li>
+                <li class="mobile_setting_btn"><a href="javascript:;">Tools</a></li>
+                <li class="mobile_menu_btn">
+                  <div id="nav_icon"><a id="btnMobileNav" href="javascript:">Menu<span></span></a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="mypartnernet_wrap clearfix">
+            </div>
+            <div class="tools_wrap clearfix">
+              <div class="formWrap">
+                <div class="formRow">
+                  <div class="formItem site_search">
+                    <form method="GET" class="cse-search-box" name="siteSearchMobile"
+                      action="/en/sitesearch/index.html">
+                      <div class="formObj">
+                        <div class="label">Site Search:</div>
+                        <div class="obj">
+                          <div><input type="text" name="q" size="31" placeholder="Enter Search Keywords"></div>
+                          <div class="search_btn"><a href="javascript:;"
+                              onclick="document.siteSearchMobile.submit();">Search</a></div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="/">Azure AD B2C</a>
+    <div class="btn-group ml-auto dropleft">
+      <button type="button" id="signIn" class="btn btn-secondary" onclick="signIn()">Sign-in</button>
+      <button type="button" id="signOut" class="btn btn-success d-none" onclick="signOut()">Sign-out</button>
+    </div>
+  </nav>
+  <br>
+  <h5 id="title-div" class="card-header text-center">Vanilla JavaScript single-page application built with MSAL.js</h5>
+  <h5 id="welcome-div" class="card-header text-center d-none"></h5>
+  <br>
+
+  <p>Please follow <a href="http://localhost:6430">this link</a>.</p>
+
+  <!-- importing bootstrap.js and supporting js libraries -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+
+  <!-- importing app scripts (load order is important) -->
+  <script type="text/javascript" src="./apiConfig.js"></script>
+  <script type="text/javascript" src="./policies.js"></script>
+  <script type="text/javascript" src="./authConfig.js"></script>
+  <script type="text/javascript" src="./ui.js"></script>
+
+  <script type="text/javascript" src="./authRedirect.js"></script>
+  <!-- uncomment the above line and comment the line below if you would like to use the redirect flow -->
+  <!-- <script type="text/javascript" src="./authPopup.js"></script> -->
+  <script type="text/javascript" src="./api.js"></script>
+</body>
+
+<style>
+  sizecontrol .middle_size {
+    font-size: 93.5%;
+  }
+
+  .container {
+    width: 100%;
+    padding: 0 20px;
+    margin: 0 auto;
+  }
+
+  .clearfix {
+    clear: both;
+  }
+</style>
+
+</html>
