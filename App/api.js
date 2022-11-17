@@ -35,3 +35,24 @@ if (temp?.sid && myMSALObj.getAllAccounts().length < 1) {
 } else if (myMSALObj.getAllAccounts().length > 0 && temp?.signOutFlag == true) {
   signOut()
 }
+
+const wrapDiv = document.getElementById('contentWrap');
+const pwContentDiv = document.getElementById('pwContent');
+
+function resetPassword() {
+  wrapDiv.classList.add('d-none');
+
+  pwContentDiv.classList.remove('d-none');
+  document.getElementById("loginTitle").innerHTML = "My PartnerNet";
+
+
+}
+
+const updateSuccessDiv = document.getElementById('updateSuccess');
+const pwPageDiv = document.getElementById('pwPage');
+
+function submitForm() {
+  pwPageDiv.classList.add('d-none');
+
+  updateSuccessDiv.classList.remove('d-none');
+}

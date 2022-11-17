@@ -64,10 +64,10 @@
             </div>
 
             <div id="section_title">
-              <span>Login</span>
+              <span id="loginTitle">Login</span>
             </div>
 
-            <div id="contentWrap">
+            <div id="contentWrap" class="">
               <div class="contentInner">
 
                 <p>Welcome to PartnerNet – An interactive platform specially designed for travel trade partners to build
@@ -77,7 +77,8 @@
                 <div class="btnContainer">
                   <button type="button" id="signIn" class="btn btnbg" onclick="signIn()">Sign-in</button>
                   <button type="button" id="signOut" class="btn btnbg d-none" onclick="signOut()">Sign-out</button>
-
+                  <button type="button" id="resetPassword" class="btn btnbg d-none" onclick="resetPassword()">Reset
+                    Password</button>
                 </div>
                 <h2 id="welcome-div" class="card-header text-center d-none"></h2>
                 <br />
@@ -86,7 +87,74 @@
 
             </div>
 
+            <div id="pwContent" class="d-none leftAlign">
+              <div id="pwPage" class="">
 
+                <h1 class="clear">Change Password</h1>
+                <p>Your personal information is protected by your unique username and password. Please keep
+                  them confidential at all time.</p>
+
+                <div class="formWrap" style="width: 50%;">
+                  <div class="formRow">
+                    <div class="formItem">
+                      <div class="formObj">
+                        <div class="label">Old Password:</div>
+                        <div class="obj"><input type="password" id="mainForm:subFormChangePw:txtChangeOldPassword"
+                            name="mainForm:subFormChangePw:txtChangeOldPassword" maxlength="20" class=""
+                            autocomplete="off">
+                        </div>
+                        <label>Must be 6-12 characters</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="formRow">
+                    <div class="formItem">
+                      <div class="formObj">
+                        <div class="label">New Password:</div>
+                        <div class="obj"><input type="password" id="mainForm:subFormChangePw:txtChangeNewPassword"
+                            name="mainForm:subFormChangePw:txtChangeNewPassword" maxlength="20" class=""
+                            autocomplete="off">
+                        </div>
+                        <label>Must be
+                          6-12
+                          characters</label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="formRow">
+                    <div class="formItem">
+                      <div class="formObj">
+                        <div class="label">Re-enter Password:</div>
+                        <div class="obj"><input type="password" id="mainForm:subFormChangePw:txtChangeConfirmPassword"
+                            name="mainForm:subFormChangePw:txtChangeConfirmPassword" maxlength="20" class=""
+                            autocomplete="off">
+                        </div>
+                        <label>Must be 6-12 characters</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <br />
+                <div class="btnContainer2">
+                  <input type="button" class="btn btnbg" onclick="location.href='/'" value="Cancel" />
+                  <button type="button" id="submitForm" class="btn btnbg" onclick="submitForm()">Submit</button>
+                </div>
+              </div>
+
+              <div id="updateSuccess" class="d-none">
+                <h1 class="clear">Succesful update!</h1>
+                <p>Your login password has been updated succeefully.</p>
+
+                <br />
+                <br />
+                <div class="btnContainer2">
+                  <input type="button" class="btn btnbg" onclick="location.href='/'" value="Back" />
+                </div>
+              </div>
+
+
+            </div>
 
           </div>
 
@@ -124,6 +192,56 @@
 </body>
 
 <style>
+  .btn_back_wrap {
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    font: 18px Microsoft JhengHei, Microsoft YaHei, Hiragino Sans GB, Arial, Helvetica, sans-serif;
+    color: #000;
+    font-family: 'Roboto', "Microsoft JhengHei", "Microsoft YaHei", "Hiragino Sans GB", Arial, Helvetica, sans-serif;
+    line-height: 1.55;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    position: absolute;
+    clear: both;
+    bottom: -75px;
+  }
+
+  .btn_back {
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    font: 18px Microsoft JhengHei, Microsoft YaHei, Hiragino Sans GB, Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', "Microsoft JhengHei", "Microsoft YaHei", "Hiragino Sans GB", Arial, Helvetica, sans-serif;
+    line-height: 1.55;
+    font-size: 100%;
+    box-sizing: border-box;
+    text-decoration: none;
+    position: relative;
+    width: 42px;
+    height: 42px;
+    display: block;
+    text-indent: -99999px;
+    border-radius: 50%;
+    background: rgba(171, 171, 171, 0.4);
+    border: 1px solid transparent;
+    transition: all 0.4s ease !important;
+    background-color: #cb0002;
+    border-color: #fe0002;
+    color: #cc311f;
+  }
+
+  .btnContainer2 {
+    width: 100%;
+    padding: 0 20px;
+    margin: 0 auto;
+    display: contents;
+    justify-content: left;
+    align-items: center;
+  }
+
   sizecontrol .middle_size {
     font-size: 93.5%;
   }
@@ -277,6 +395,33 @@
     background: #cb0002;
     margin-right: 5px;
     line-height: 28px;
+  }
+
+  .centerAlign {
+    text-align: center;
+    padding-top: 20px
+  }
+
+  .leftAlign {
+    padding-top: 10px;
+    text-align: left;
+    padding-left: 200px;
+  }
+
+  #pwContent p {
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    font: 18px Microsoft JhengHei, Microsoft YaHei, Hiragino Sans GB, Arial, Helvetica, sans-serif;
+    color: #000;
+    font-family: 'Roboto', "Microsoft JhengHei", "Microsoft YaHei", "Hiragino Sans GB", Arial, Helvetica, sans-serif;
+    line-height: 1.55;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    font-size: 1em;
+    margin-bottom: 18px;
   }
 </style>
 

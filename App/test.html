@@ -1,0 +1,91 @@
+<div class="formWrap" style="width: 50%;">
+  <div class="formRow">
+    <div class="formItem">
+      <div class="formObj">
+        <div class="label">Old Password:</div>
+        <div class="obj"><input type="password" id="mainForm:subFormChangePw:txtChangeOldPassword"
+            name="mainForm:subFormChangePw:txtChangeOldPassword" maxlength="20" class="" autocomplete="off"><label>Must
+            be 6-12 characters</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="formRow">
+    <div class="formItem">
+      <div class="formObj">
+        <div class="label">New Password:</div>
+        <div class="obj"><input type="password" id="mainForm:subFormChangePw:txtChangeNewPassword"
+            name="mainForm:subFormChangePw:txtChangeNewPassword" onkeyup="changePasswordCheck(this)"
+            onblur="changePasswordCheck(this)" maxlength="20" class="" autocomplete="off"><label>Must be 6-12
+            characters</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="formRow">
+    <div class="formItem">
+      <div class="formObj">
+        <div class="label">Password Strength:</div>
+        <div class="obj"><label id="mainForm:subFormChangePw:lblPasswordStrength">0%</label>
+          <br>
+          <div id="row_indicator"></div>
+          <script type="text/javascript">
+            function changePasswordCheck(element) {
+              $.ajax({
+                'type': 'POST'
+                , 'url': '/getPasswordStrength.jsf'
+                , 'async': false
+                , 'cache': false
+                , 'data': 'password=' + encodeURI($(element).val())
+                , 'dataType': 'xml'
+                , 'success': function (xml) {
+                  //<![CDATA[ 
+                  var text = "";
+                  var color = "";
+                  var white = "#FFFFFF";
+                  var str = $(xml).find('str').text().split(",");
+                  var rate = parseInt(str[1]);
+                  switch (rate) {
+                    case 0: text = "Very Weak"; color = "rgb(248, 209, 211)"; break;
+                    case 1: text = "Weak"; color = "rgb(242, 163, 167)"; break;
+                    case 2: text = "Good"; color = "rgb(235, 117, 123)"; break;
+                    case 3: text = "Strong"; color = "rgb(221, 61, 70)"; break;
+                    case 4: text = "Very Strong"; color = "rgb(178, 26, 34)"; break;
+                    default: text = "Error"; color = "#FFFFFF";
+                  }
+                  document.getElementById('mainForm:subFormChangePw:lblPasswordStrength').innerHTML = text;
+                  var row_indicator_html = "";
+                  var i;
+                  for (i = 0; i < 5; i++) {
+                    var bgcolorCss = 'background-color: ' + color + ';';
+                    row_indicator_html +=
+                      '<td style="height: 5px; width: 40px; padding: 0px; ' + (i <= rate ? bgcolorCss : '') + '"></td>';
+                  }
+                  var row_indicator_table =
+                    '<table style="border: 0; height: 5px; width: 200px; padding: 0px; border-collapse: collapse; margin-top:0px; margin-bottom:12px;">'
+                    + '<tr>'
+                    + row_indicator_html
+                    + '</tr>'
+                    + '</table>';
+                  document.getElementById('row_indicator').innerHTML = row_indicator_table;
+                  //]]>
+                }
+              });
+            }
+          </script>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="formRow">
+    <div class="formItem">
+      <div class="formObj">
+        <div class="label">Re-enter Password:</div>
+        <div class="obj"><input type="password" id="mainForm:subFormChangePw:txtChangeConfirmPassword"
+            name="mainForm:subFormChangePw:txtChangeConfirmPassword" maxlength="20" class=""
+            autocomplete="off"><label>Must be 6-12 characters</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
