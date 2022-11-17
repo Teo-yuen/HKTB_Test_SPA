@@ -6,6 +6,20 @@ let accountId = "";
 let username = "";
 let accessToken = null;
 
+const cookieObj = new URLSearchParams(document.cookie.replaceAll("&", "%26").replaceAll("; ", "&"))
+
+let sid = '';
+let signOutFlag = false;
+let tempObject = {
+    sid: sid,
+    signOutFlag: signOutFlag
+}
+
+if (cookieObj.get("object") == null) {
+
+    document.cookie = `object=${JSON.stringify(tempObject)}`;
+}
+
 myMSALObj.handleRedirectPromise()
     .then(response => {
         if (response) {
@@ -26,8 +40,17 @@ myMSALObj.handleRedirectPromise()
 
 
 function setAccount(account) {
+    console.log(account?.username);
+
     accountId = account.homeAccountId;
     username = account?.name;
+
+    tempObject = {
+        sid: account?.username,
+        signOutFlag: false
+    }
+
+    document.cookie = `object=${JSON.stringify(tempObject)}`;
     welcomeUser(username);
 }
 
@@ -115,6 +138,11 @@ function signOut() {
     };
 
     myMSALObj.logoutRedirect(logoutRequest);
+    tempObject = {
+        sid: '',
+        signOutFlag: true
+    }
+    document.cookie = `object=${JSON.stringify(tempObject)}`;
 }
 
 function getTokenRedirect(request) {
